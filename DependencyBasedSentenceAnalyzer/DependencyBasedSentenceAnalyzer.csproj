@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A938C071-9A6A-4468-8822-1D82BCC2C296}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>DependencyBasedSentenceAnalyzer</RootNamespace>
+    <AssemblyName>DependencyBasedSentenceAnalyzer</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="DependencyBasedSentenceAnalyzer">
+      <HintPath>..\LIB\DependencyBasedSentenceAnalyzer.dll</HintPath>
+    </Reference>
+    <Reference Include="SCICT.NLP.MorphologyAnalyser">
+      <HintPath>..\LIB\SCICT.NLP.MorphologyAnalyser.dll</HintPath>
+    </Reference>
+    <Reference Include="SCICT.NLP.Utility.Lemmatization">
+      <HintPath>..\LIB\SCICT.NLP.Utility.Lemmatization.dll</HintPath>
+    </Reference>
+    <Reference Include="SCICT.NLP.Utility.Verbs">
+      <HintPath>..\LIB\SCICT.NLP.Utility.Verbs.dll</HintPath>
+    </Reference>
+    <Reference Include="SCICT.PersianTools">
+      <HintPath>..\LIB\SCICT.PersianTools.dll</HintPath>
+    </Reference>
+    <Reference Include="SCICT.Utility">
+      <HintPath>..\LIB\SCICT.Utility.dll</HintPath>
+    </Reference>
+    <Reference Include="YAXLib">
+      <HintPath>..\LIB\YAXLib.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="DependencyBasedToken.cs" />
+    <Compile Include="Enums.cs" />
+    <Compile Include="MorphoSyntacticFeatures.cs" />
+    <Compile Include="SentenceAnalyzer.cs" />
+    <Compile Include="VerbBasedSentence.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\VerbInflector\VerbInflector.csproj">
+      <Project>{98090A77-CE59-4C5B-8CFB-76E5E603C56F}</Project>
+      <Name>VerbInflector</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>
